@@ -1,0 +1,18 @@
+[user]
+	name = ysahnk
+	email = 193875306+ysahnk@users.noreply.github.com
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[difftool]
+	prompt = false
+[mergetool]
+	keepBackup = false
+[pull]
+	rebase = true
+[alias]
+	list = log --oneline --decorate --graph  --all

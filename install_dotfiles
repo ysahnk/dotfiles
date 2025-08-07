@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+cd $(dirname $0)
+
+echo "-> Creating dotfile links..."
+ln -sfv $PWD/bash_profile	$HOME/.bash_profile
+ln -sfv $PWD/bashrc			$HOME/.bashrc
+ln -sfv $PWD/gitconfig		$HOME/.gitconfig
+ln -sfv $PWD/inputrc		$HOME/.inputrc
+ln -sfv $PWD/vimrc			$HOME/.vimrc
+ln -sfv $PWD/xinitrc		$HOME/.xinitrc
+ln -sfv $PWD/XKBkeymap		$HOME/.XKBkeymap
+#ln -sfv $PWD/Xmodmap		$HOME/.Xmodmap
+echo "-> done"
+
+#SELF=$(basename $0)
+#for dotfile in *; do
+#	[[ $dotfile == $SELF ]] && continue
+#	ln -sfv $PWD/$dotfile $HOME/.$dotfile
+#done
