@@ -1,8 +1,8 @@
 "for .vimrc file {{{
 augroup vimrc
  autocmd!
- autocmd BufRead $MYVIMRC setlocal foldmethod=marker
- autocmd BufWritePost $MYVIMRC source $MYVIMRC
+ autocmd BufRead ~/{dotfiles/,.}vimrc setlocal foldmethod=marker
+ autocmd BufWritePost ~/{dotfiles/,.}vimrc source %
 augroup END
 " }}}
 
