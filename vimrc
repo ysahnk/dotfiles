@@ -77,6 +77,8 @@ nnoremap <leader>v :edit $MYVIMRC<CR>
 nnoremap <leader>t :terminal<CR>
 nnoremap <leader>x :Explore<CR>
 nnoremap <leader>r :registers<CR>
+nnoremap <silent> <leader>s :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar> syntax enable <Bar> endif <CR>
+
 
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 "nnoremap <Tab> :bnext<CR>
