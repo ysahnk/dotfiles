@@ -70,6 +70,14 @@ augroup todo
 augroup END
 " }}}
 
+"for markdown file {{{
+augroup markdown
+ autocmd!
+ autocmd FileType markdown highlight! link markdownError NONE
+ autocmd FileType markdown let g:markdown_fenced_languages = ['bash', 'c', 'javascript']
+ augroup END
+" }}}
+
 let mapleader = " "
 "let maplocalleader = ","
 
@@ -79,11 +87,8 @@ nnoremap <leader>x :Explore<CR>
 nnoremap <leader>r :registers<CR>
 nnoremap <silent> <leader>s :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar> syntax enable <Bar> endif <CR>
 
-
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 "nnoremap <Tab> :bnext<CR>
-
-let g:markdown_fenced_languages = ['bash', 'c', 'javascript']
 
 """ SETTINGS
 syntax on
