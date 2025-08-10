@@ -16,3 +16,5 @@
 	rebase = true
 [alias]
 	list = log --oneline --decorate --graph  --all
+[commit]
+	verbose = true
