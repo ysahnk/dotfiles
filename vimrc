@@ -64,9 +64,9 @@ endfunction
 
 augroup todo
  autocmd!
- autocmd BufNewFile,BufRead ~/todo.md nnoremap <buffer> x <Esc>:call <SID>ToggleDone()<CR> 
- autocmd BufNewFile,BufRead ~/todo.md nnoremap <buffer> t <Esc>:call <SID>ToggleComp()<CR> 
- autocmd BufNewFile,BufRead ~/todo.md nnoremap <buffer> o o- [ ] 
+ autocmd BufRead ~/todo.md nnoremap <buffer> x <Esc>:call <SID>ToggleDone()<CR> 
+ autocmd BufRead ~/todo.md nnoremap <buffer> t <Esc>:call <SID>ToggleComp()<CR> 
+ autocmd BufRead ~/todo.md nnoremap <buffer> o o- [ ] 
 augroup END
 " }}}
 
