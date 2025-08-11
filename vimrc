@@ -14,8 +14,8 @@ let s:c_template = [
 	\ ]
 
 function s:Eatchar(pat)
-	let c = nr2char(getchar(0))
-	return (c =~# a:pat) ? "" : c
+	let l:c = nr2char(getchar(0))
+	return (l:c =~# a:pat) ? "" : l:c
 endfunction
 
 function s:SetCAbbrev()
@@ -36,24 +36,24 @@ augroup END
 
 "for todo.md file {{{
 function s:ToggleDone() 
-	let line = getline(".")
+	let l:line = getline(".")
 	let @t = strftime("[%Y-%m-%d %H:%M:%S] ")
-	if line[0:4] ==# "- [ ]"
+	if l:line[0:4] ==# "- [ ]"
 		normal! 03lrx3l"tP0
-	elseif line[0:4] ==# "- [x]"
+	elseif l:line[0:4] ==# "- [x]"
 		normal! 03lr 2ldf]0
 	endif
 endfunction
 
 function s:ToggleComp() 
-	let line = getline(".")
-	let current_num = line(".")
-	let done_num = search('^### DONE$', "nw")
-	if line[0:4] ==# "- [ ]"
+	let l:line = getline(".")
+	let l:current_num = line(".")
+	let l:done_num = search('^### DONE$', "nw")
+	if l:line[0:4] ==# "- [ ]"
 		call s:ToggleDone()
 		normal! ddGp''0
-	elseif line[0:4] ==# "- [x]"
-		if current_num < done_num
+	elseif l:line[0:4] ==# "- [x]"
+		if l:current_num < l:done_num
 			normal! ddGp''0
 		else
 			call s:ToggleDone()
@@ -101,6 +101,7 @@ set scrolloff=3
 "set laststatus=2
 set nobackup
 set noswapfile
+"set iskeyword=a-z,A-Z,48-57,_,.,-,>
 
 """ INDENT
 set autoindent
