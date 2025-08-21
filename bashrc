@@ -5,18 +5,19 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export EDITOR=vim
 export HISTCONTROL='ignoreboth:erasedups'
 export HISTIGNORE='re:re *:resudo:reless:regrep *'
 export HISTSIZE=1200
 export HISTFILESIZE=5000
 #export HISTTIMEFORMAT='%b %d %H:%M:%S '
+
 set -o noclobber
 complete -c man sudo
+complete -d cd
 
 alias c='checkupdates && sudo pacman -Syu'
-alias d='vim ~/todo.md'
-alias v='vim'
+alias d="$EDITOR $TODOFILE"
+alias v="$EDITOR"
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'

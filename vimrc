@@ -1,8 +1,8 @@
 "for .vimrc file {{{
 augroup vimrc
  autocmd!
- autocmd BufRead ~/{dotfiles/,.}vimrc setlocal foldmethod=marker
- autocmd BufWritePost ~/{dotfiles/,.}vimrc source %
+ autocmd BufRead {$DOTDIR/,$HOME/.}vimrc setlocal foldmethod=marker
+ autocmd BufWritePost {$DOTDIR/,$HOME/.}vimrc source %
 augroup END
 " }}}
 
@@ -34,7 +34,7 @@ augroup C
 augroup END
 " }}}
 
-"for todo.md file {{{
+"for $TODOFILE file {{{
 function s:ToggleDone() 
 	let l:line = getline(".")
 	let @t = strftime("[%Y-%m-%d %H:%M:%S] ")
@@ -64,9 +64,9 @@ endfunction
 
 augroup todo
  autocmd!
- autocmd BufRead ~/todo.md nnoremap <buffer> x <Esc>:call <SID>ToggleDone()<CR> 
- autocmd BufRead ~/todo.md nnoremap <buffer> t <Esc>:call <SID>ToggleComp()<CR> 
- autocmd BufRead ~/todo.md nnoremap <buffer> o o- [ ] 
+ autocmd BufRead $TODOFILE nnoremap <buffer> x <Esc>:call <SID>ToggleDone()<CR> 
+ autocmd BufRead $TODOFILE nnoremap <buffer> t <Esc>:call <SID>ToggleComp()<CR> 
+ autocmd BufRead $TODOFILE nnoremap <buffer> o o- [ ] 
 augroup END
 " }}}
 
@@ -101,7 +101,6 @@ set scrolloff=3
 "set laststatus=2
 set nobackup
 set noswapfile
-"set iskeyword=a-z,A-Z,48-57,_,.,-,>
 
 """ INDENT
 set autoindent
@@ -140,6 +139,7 @@ inoremap ' ''<Left>
 set shortmess+=c
 set complete=.,w,b,u,i
 set completeopt=menuone,preview
+"set iskeyword=a-z,A-Z,48-57,_,.,-,>
 for k in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
 	execute "inoremap " . k . " " . k . "<C-N><C-P>"
 endfor
