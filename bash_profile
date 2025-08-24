@@ -8,6 +8,6 @@
 [[ -f "$HOME/todo.md" ]] && export TODOFILE="$HOME/todo.md"
 export EDITOR='vim'
 
-# Make sure to source bashrc after exporting ENVIRONMENT used there
-# if you want it to work properly within console TTY login shell
+# Make sure to export ENVIRONMENT variables BEFORE sourcing bashrc,
+# so they are available within console login shell context (TTY).
 [[ -f ~/.bashrc ]] && . ~/.bashrc
