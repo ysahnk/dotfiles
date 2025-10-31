@@ -4,6 +4,7 @@ set -e
 cd $(dirname $0)
 
 echo "-> Creating dotfile links..."
+
 ln -sfv $PWD/bash_profile	$HOME/.bash_profile
 ln -sfv $PWD/bashrc			$HOME/.bashrc
 ln -sfv $PWD/gitconfig		$HOME/.gitconfig
@@ -12,6 +13,10 @@ ln -sfv $PWD/vimrc			$HOME/.vimrc
 ln -sfv $PWD/xinitrc		$HOME/.xinitrc
 ln -sfv $PWD/XKBkeymap		$HOME/.XKBkeymap
 #ln -sfv $PWD/Xmodmap		$HOME/.Xmodmap
+
+mkdir -pv $HOME/.config/htop
+ln -sfv $PWD/htoprc			$HOME/.config/htop/htoprc
+
 echo "-> done"
 
 #SELF=$(basename $0)

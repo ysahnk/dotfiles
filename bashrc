@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 export HISTCONTROL='ignoreboth:erasedups'
-export HISTIGNORE='re:re *:resudo:reless:regrep *:c:d'
+export HISTIGNORE='re:re *:resudo:reless:regrep *:c:d:h'
 export HISTSIZE=1200
 export HISTFILESIZE=5000
 #export HISTTIMEFORMAT='%b %d %H:%M:%S '
@@ -20,6 +20,7 @@ complete -d cd
 alias c='checkupdates && sudo pacman -Syu'
 alias d="$EDITOR $TODOFILE"
 alias v="$EDITOR"
+alias h='htop'
 
 alias rm='rm -i'
 alias mv='mv -i'
