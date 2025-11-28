@@ -127,6 +127,7 @@ set splitbelow
 set splitright
 set wildmenu
 set wildoptions=pum
+set wildignorecase
 
 """ PAREN
 inoremap { {}<Left>
