@@ -17,10 +17,9 @@ ln -sfv $PWD/XKBkeymap		$HOME/.XKBkeymap
 mkdir -pv $HOME/.config/htop
 ln -sfv $PWD/htoprc			$HOME/.config/htop/htoprc
 
-echo "-> done"
+mkdir -pv $HOME/.gnupg
+chmod -v 700 $HOME/.gnupg
+ln -sfv	$PWD/gpg.conf		$HOME/.gnupg/gpg.conf
+chmod -v 600 $HOME/.gnupg/gpg.conf
 
-#SELF=$(basename $0)
-#for dotfile in *; do
-#	[[ $dotfile == $SELF ]] && continue
-#	ln -sfv $PWD/$dotfile $HOME/.$dotfile
-#done
+echo "-> Done!"
