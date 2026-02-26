@@ -44,12 +44,15 @@ augroup markdown
 
 "for $TODOFILE file {{{
 function s:ToggleDone() 
+	silent! undojoin
 	let l:line = getline(".")
 	let @t = strftime("[%Y-%m-%d %H:%M:%S] ")
 	if l:line[0:4] ==# "- [ ]"
 		normal! 03lrx3l"tP0
 	elseif l:line[0:4] ==# "- [x]"
-		normal! 03lr 2ldf]0
+		normal! 03lr?2ldf]0
+	elseif l:line[0:4] ==# "- [?]"
+		normal! 03lr 0
 	endif
 endfunction
 
@@ -57,16 +60,16 @@ function s:ToggleComp()
 	let l:line = getline(".")
 	let l:current_num = line(".")
 	let l:done_num = search('^### DONE$', "nw")
-	if l:line[0:4] ==# "- [ ]"
-		call s:ToggleDone()
-		normal! ddGp''0
-	elseif l:line[0:4] ==# "- [x]"
+	if l:line[0:4] ==# "- [x]"
 		if l:current_num < l:done_num
 			normal! ddGp''0
+			echo "You have done it!"
 		else
-			call s:ToggleDone()
 			normal! dd2Gp0
+			call s:ToggleDone()
 		endif
+	else
+		echo "You are on the pending task!"
 	endif
 endfunction
 
