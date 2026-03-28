@@ -111,7 +111,7 @@ augroup END
 let mapleader = " "
 "let maplocalleader = ","
 
-nnoremap <leader>c :echo system("date; echo; cal -3")<CR>
+nnoremap <leader>c :echo system("echo; date -Idate; echo; cal -3;")<CR>
 nnoremap <leader>v :edit $MYVIMRC<CR>
 nnoremap <leader>t :terminal<CR>
 nnoremap <leader>x :Explore<CR>
