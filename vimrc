@@ -9,7 +9,8 @@ augroup END
 "for C file {{{
 let s:c_template = [
 	\ "#include <stdio.h>", "",
-	\ "int main(int argc, char *argv[]) {", "",
+	\ "int main(int argc, char *argv[])",
+	\ "{",
 	\ "\treturn 0;", "}"
 	\ ]
 
@@ -20,10 +21,10 @@ endfunction
 
 function s:SetCAbbrev()
 	inoreabbrev <buffer> iff
-	\ if (z) {<CR><CR>}
+	\ if (z)<CR>{<CR>}
 	\<C-O>?z<CR><Del><C-O>:nohlsearch<CR><C-R>=<SID>Eatchar('\s')<CR>
 	inoreabbrev <buffer> forr
-	\ for (int i = 0; i < z; i++) {<CR><CR>}
+	\ for (int i = 0; i < z; i++)<CR>{<CR>}
 	\<C-O>?z<CR><Del><C-O>:nohlsearch<CR><C-R>=<SID>Eatchar('\s')<CR>
 endfunction
 
