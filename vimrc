@@ -119,7 +119,10 @@ nnoremap <leader>r :registers<CR>
 nnoremap <silent> <leader>s :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar> syntax enable <Bar> endif <CR>
 
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-"nnoremap <Tab> :bnext<CR>
+
+""" HIGHLIGHT
+"highlight Pmenu ctermbg=15
+highlight PmenuSel ctermbg=9
 
 """ SETTINGS
 syntax on
@@ -177,3 +180,19 @@ for k in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
 endfor
 inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
 inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+
+""" BUFFER SELECTOR
+function! s:BufferSelector()
+	let l:buflist = filter(range(1, bufnr("$")), "buflisted(v:val)")
+	let l:lines = map(l:buflist, 'printf("%2d: %s", v:val, bufname(v:val))')
+	call popup_menu(l:lines, #{
+		\ border: [1, 0, 1, 0],
+		\ callback: "<SID>BufferSelectorHandler",
+		\ })
+endfunction
+function! s:BufferSelectorHandler(id, result)
+	let l:buflist = filter(range(1, bufnr("$")), "buflisted(v:val)")
+	let l:num = l:buflist[a:result - 1]
+	execute "buffer " . l:num
+endfunction
+nnoremap <silent> <leader>j :call <SID>BufferSelector()<CR>
