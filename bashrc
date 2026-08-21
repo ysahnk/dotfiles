@@ -9,7 +9,6 @@ export HISTCONTROL='ignoreboth:erasedups'
 export HISTIGNORE='re:re *:resudo:reless:regrep *:c:d:h:l:w'
 export HISTSIZE=1200
 export HISTFILESIZE=5000
-#export HISTTIMEFORMAT='%b %d %H:%M:%S '
 
 set -o noclobber
 shopt -s autocd
@@ -22,7 +21,6 @@ alias d="$EDITOR $TODOFILE"
 alias v="$EDITOR"
 alias h='htop'
 alias l="ls -top | grep -v '/$' | head -n 6"
-alias w='curl wttr.in/Nagoya?Fqn'
 
 alias rm='rm -i'
 alias mv='mv -i'
@@ -32,7 +30,6 @@ alias ..='cd ..'
 
 alias sudo='sudo '
 alias re='eval "$(fc -ln -1)"'
-#alias rere='eval "$(fc -ln -2 -2)"'
 alias resudo='eval "sudo $(fc -ln -1)"'
 alias reless='eval "$(fc -ln -1) | less"'
 alias regrep='eval "$(fc -ln -1)" | grep'
@@ -48,4 +45,6 @@ alias less='less -iM --incsearch'
 PS1='[\u@\h \w$(__git_ps1 " (%s)")]\$ '
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
-#source /usr/share/bash-completion/completions/systemctl 
+
+# experimental
+[[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
