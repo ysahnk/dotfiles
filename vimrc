@@ -154,7 +154,7 @@ set hlsearch
 set shortmess-=S
 
 """ MOVE
-set whichwrap=h,l
+"set whichwrap=h,l
 "set backspace=indent,eol,start
 
 """ DISPLAY
