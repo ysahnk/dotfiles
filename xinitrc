@@ -39,4 +39,6 @@ fi
 
 [[ -f ~/.XKBkeymap ]] && xkbcomp ~/.XKBkeymap $DISPLAY
 xset r rate 200 40
-exec startxfce4
+
+desktop_init.sh &
+exec dwm
