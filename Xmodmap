@@ -248,17 +248,18 @@
 !keycode 255 = XF86RFKill NoSymbol XF86RFKill
 
 remove lock = Caps_Lock
-
 keycode  66 = Escape Caps_Lock Escape Caps_Lock
-keycode  97 = underscore backslash underscore backslash
+
 keycode 100 = Control_R NoSymbol Control_R
-keycode 101 = Alt_R Meta_R Alt_R Meta_R
+add control = Control_R
+
+keycode 102 = Super_L
+add mod4 = Super_L
+
+keycode  97 = underscore backslash underscore backslash
+keycode 132 = bar backslash bar backslash
+
 !keycode 102 = BackSpace Delete BackSpace Delete
 !keycode 102 = Tab ISO_Left_Tab Tab ISO_Left_Tab
 !keycode 102 = Shift_R NoSymbol Shift_R
-keycode 132 = bar backslash bar backslash 
-
-add control = Control_R
-add mod1 = Alt_R
-add shift = Shift_R
 

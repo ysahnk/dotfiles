@@ -1,5 +1,5 @@
 xkb_keymap {
-xkb_keycodes "evdev+aliases(qwerty)" {
+xkb_keycodes "evdev_aliases(qwerty)" {
     minimum = 8;
     maximum = 255;
      <ESC> = 9;
@@ -491,7 +491,6 @@ xkb_types "complete" {
     };
     type "FOUR_LEVEL_X" {
         modifiers= Shift+Control+Alt+LevelThree;
-        map[Shift]= Level1;
         map[LevelThree]= Level2;
         map[Shift+LevelThree]= Level3;
         map[Control+Alt]= Level4;
@@ -701,9 +700,15 @@ xkb_types "complete" {
         level_name[Level1]= "Base";
         level_name[Level2]= "Shift+Alt";
     };
+    type "SHIFT+ALT" {
+        modifiers= Shift+Alt;
+        map[Shift+Alt]= Level2;
+        level_name[Level1]= "Base";
+        level_name[Level2]= "Shift+Alt";
+    };
 };
 
-xkb_compatibility "complete+japan" {
+xkb_compatibility "complete_japan" {
 
     virtual_modifiers NumLock,Alt,LevelThree,Super,LevelFive,Meta,Hyper,ScrollLock;
 
@@ -1202,7 +1207,7 @@ xkb_compatibility "complete+japan" {
     };
 };
 
-xkb_symbols "pc+jp+inet(evdev)" {
+xkb_symbols "pc_jp_inet(evdev)" {
 
     name[group1]="Japanese";
 
@@ -1428,8 +1433,14 @@ xkb_symbols "pc+jp+inet(evdev)" {
     key <HIRA> {         [        Hiragana ] };
     key <HENK> {         [       Control_R ] };
     key <HKTG> {
-        type= "PC_ALT_LEVEL2",
-        symbols[Group1]= [           Alt_R,          Meta_R ]
+        type[group1]= "PC_ALT_LEVEL2",
+        type[group2]= "ONE_LEVEL",
+        type[group3]= "ONE_LEVEL",
+        type[group4]= "ONE_LEVEL",
+        symbols[Group1]= [         Super_L,        NoSymbol ],
+        symbols[Group2]= [        NoSymbol ],
+        symbols[Group3]= [        NoSymbol ],
+        symbols[Group4]= [        NoSymbol ]
     };
     key <MUHE> {         [        Muhenkan ] };
     key <KPEN> {         [        KP_Enter ] };
@@ -1585,18 +1596,13 @@ xkb_symbols "pc+jp+inet(evdev)" {
     modifier_map Control { <LCTL> };
     modifier_map Shift { <LFSH> };
     modifier_map Shift { <RTSH> };
-    modifier_map Mod1 { <LALT> };
     modifier_map Mod2 { <NMLK> };
     modifier_map Mod5 { <LVL3> };
     modifier_map Control { <HENK> };
-    modifier_map Mod1 { <HKTG> };
+    modifier_map Mod4 { <HKTG> };
     modifier_map Control { <RCTL> };
-    modifier_map Mod1 { <RALT> };
     modifier_map Mod4 { <LWIN> };
-    modifier_map Mod4 { <RWIN> };
     modifier_map Mod3 { <LVL5> };
-    modifier_map Mod1 { <ALT> };
-    modifier_map Mod1 { <META> };
     modifier_map Mod4 { <SUPR> };
 };
 
