@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 set -e
 cd $(dirname $0)
@@ -16,6 +16,12 @@ ln -sfv $PWD/XKBkeymap		$HOME/.XKBkeymap
 
 mkdir -pv $HOME/.config/htop
 ln -sfv $PWD/htoprc			$HOME/.config/htop/htoprc
+
+mkdir -pv $HOME/.config/dunst
+ln -sfv $PWD/dunstrc		$HOME/.config/dunst/dunstrc
+
+mkdir -pv $HOME/.config/picom
+ln -sfv $PWD/picom.conf		$HOME/.config/picom/picom.conf
 
 mkdir -pv $HOME/.gnupg
 chmod -v 700 $HOME/.gnupg

@@ -1,0 +1,25 @@
+[global]
+    monitor = 0
+
+    width = (250, 500)
+    height = (0, 750)
+	origin = top-right
+    offset = (32, 32)
+
+    transparency = 22
+
+    padding = 8
+    horizontal_padding = 8
+    frame_width = 0
+	gap_size = 8
+    corner_radius = 0
+
+	idle_threshold = 0
+
+    font = UDEV Gothic 13
+    format = "<b>%s</b>\n%b"
+
+[urgency_normal]
+    foreground = "#0a2e2e"
+    background = "#ceceee"
+    timeout = 5
