@@ -82,33 +82,6 @@ augroup todo
 augroup END
 " }}}
 
-"for *.gpg file {{{
-function! s:GPGEncrypt()
-	set bin
-	%!gpg --encrypt 2> /dev/null
-
-	if v:shell_error != 0
-		silent u
-		set nobin
-		let v:errmsg = "GPG encryption failed. Write aborted."
-		throw "GPG encryption failed. Write aborted."
-	endif
-endfunction
-
-augroup GPG
- autocmd!
- "Read and Decrypt...
- autocmd BufReadPre *.gpg set bin viminfo= noswapfile
- autocmd BufReadPost *.gpg %!gpg --decrypt 2> /dev/null
- autocmd BufReadPost *.gpg set nobin
-
- "Encrypt and Write...
- autocmd BufWritePre *.gpg call s:GPGEncrypt()
- autocmd BufWritePost *.gpg silent u
- autocmd BufWritePost *.gpg set nobin
-augroup END
-"}}}
-
 let mapleader = " "
 "let maplocalleader = ","
 
